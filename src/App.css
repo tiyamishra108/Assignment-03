@@ -1,0 +1,219 @@
+/* ── tokens ──────────────────────────────────────── */
+:root {
+  --bg-page:       #0b1120;
+  --bg-card:       #111827;
+  --bg-card-inner: #0f1a2e;
+  --bg-stats:      #0d1526;
+  --bg-row-alt:    #0f1d32;
+  --bg-row-hover:  #132240;
+
+  --accent:        #10b981;          /* emerald */
+  --accent-2:      #34d399;
+  --accent-gold:   #f59e0b;          /* amber for H1 */
+  --accent-grad:   linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+
+  --text-primary:  #f1f5f9;
+  --text-muted:    #94a3b8;
+  --text-hint:     #475569;
+
+  --border:        rgba(16, 185, 129, 0.15);
+  --border-strong: rgba(16, 185, 129, 0.35);
+  --input-border:  rgba(148, 163, 184, 0.2);
+  --input-focus:   rgba(16, 185, 129, 0.5);
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+
+  --shadow-card:
+    0 0 0 1px rgba(16, 185, 129, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 2px 8px  rgba(0, 0, 0, 0.3);
+
+  --shadow-btn:
+    0 4px 14px rgba(16, 185, 129, 0.3),
+    0 1px 3px  rgba(0, 0, 0, 0.2);
+
+  --font: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 15% 0%,   rgba(16, 185, 129, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 100%,  rgba(6, 182, 212, 0.06)  0%, transparent 55%);
+  font-family: var(--font);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ── container ────────────────────────────────────── */     
+.container {
+  width: 650px;
+  margin: 48px auto;
+  background: var(--bg-card);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+/* ── heading ──────────────────────────────────────── */
+h1 {
+  font-family: var(--font);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  margin: 0 0 24px;
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── form ─────────────────────────────────────────── */
+form {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  padding: 9px 14px;
+  background: var(--bg-card-inner);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+  color: var(--text-hint);
+}
+
+input:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+}
+
+/* ── button ───────────────────────────────────────── */
+button {
+  padding: 9px 20px;
+  background: var(--accent-grad);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: var(--shadow-btn);
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ── stats ────────────────────────────────────────── */
+.stats {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  background: var(--bg-stats);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-2);
+  letter-spacing: 0.1px;
+}
+
+/* ── table wrapper ────────────────────────────────── */
+.table-wrap {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* ── table ────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ── thead ────────────────────────────────────────── */
+thead {
+  background: linear-gradient(90deg, #065f46 0%, #0e7490 100%);
+}
+
+th {
+  padding: 13px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #a7f3d0;
+  text-align: left;
+}
+
+/* ── tbody ────────────────────────────────────────── */
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+  font-size: 14px;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg-row-alt);
+}
+
+tbody tr:hover {
+  background: var(--bg-row-hover);
+  transition: background 0.15s;
+}
+
+tbody tr:hover td {
+  color: #e2e8f0;
+}
+
+/* ── input inside table ───────────────────────────── */
+td input {
+  width: 68px;
+  text-align: center;
+  padding: 5px 8px;
+  font-size: 13px;
+  background: rgba(16, 185, 129, 0.06);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+td input:focus {
+  background: rgba(16, 185, 129, 0.1);
+}
